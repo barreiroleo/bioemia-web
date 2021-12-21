@@ -1,0 +1,113 @@
+.footer {
+  background-color: $brown_50;
+  color: $black_100;
+  // padding: 2.5rem;
+  text-align: center;
+
+  .container {
+    padding: 2.5rem;
+    @include breakpoint-up(large) {
+      display: grid;
+      grid-template-columns: auto;
+      grid-template-rows: 1fr auto;
+      grid-template-areas:
+        "social"
+        "links";
+      gap: 1rem;
+      justify-items: center;
+      justify-content: center;
+      flex-direction: column;
+    }
+  }
+
+  a {
+    color: $brown_100;
+  }
+
+  &__logo {
+    display: inline-block;
+
+    img {
+      // width: 8.8125rem;
+      height: 5.375rem;
+    }
+    @include breakpoint-down(medium) {
+      margin-bottom: 1rem;
+    }
+
+    @include breakpoint-up(large) {
+      grid-area: logo;
+    }
+  }
+
+  &__social {
+    @include breakpoint-down(medium) {
+      margin: 1rem;
+    }
+
+    @include breakpoint-up(large) {
+      grid-area: social;
+      align-self: end;
+    }
+
+    a {
+      display: inline-block;
+      height: 1.25rem;
+
+      svg path {
+        transition: fill 150ms ease-in-out;
+        fill: $brown_100;
+      }
+
+      &:hover svg path {
+        fill: $brown_80;
+      }
+    }
+
+    a:not(:last-child) {
+      margin-right: 1rem;
+    }
+  }
+
+  &__links {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 2rem;
+    font-size: 0.9375rem;
+    justify-content: center;
+    margin: 1rem;
+
+    @include breakpoint-up(large) {
+    }
+
+    &.col {
+      @include breakpoint-up(large) {
+        grid-area: links;
+      }
+    }
+
+    a {
+      line-height: 2.25;
+      transition: color 150ms ease-in-out;
+
+      &:hover {
+        color: $brown_80;
+      }
+    }
+  }
+
+  &__cta {
+    @include breakpoint-up(large) {
+      grid-area: cta;
+      text-align: right;
+      justify-self: end;
+    }
+
+    a.button {
+      @include breakpoint-down(medium) {
+        margin-bottom: 1.875rem;
+      }
+    }
+  }
+}
